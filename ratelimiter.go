@@ -103,7 +103,7 @@ func NewDefaultLimiter(maxRequests int, window, banDuration time.Duration) *Defa
 	}
 }
 
-// New initiates and return the middleware function that will
+// New initiates and return the middleware function that will limit the incoming requests
 func New(limiter RateLimiter) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
