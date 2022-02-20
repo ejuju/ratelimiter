@@ -36,26 +36,9 @@ func TestEndToEnd(t *testing.T) {
 	}()
 	time.Sleep(1 * time.Second) // wait for server to start
 
-	// test clients
+	// test client
 	nbReqs := maxRequests + 1
 	reqInterval := 100 * time.Millisecond
-
-	go func() {
-		for i := 0; i < nbReqs; i++ {
-			_, err := http.Get("http://localhost:8080/")
-			if err != nil {
-				return
-			}
-			// if res.StatusCode == http.StatusTooManyRequests {
-			// 	if i+1 != maxRequests {
-			// 		t.Error(fmt.Errorf("should have gotten banned after %v requests, got banned after %v instead", maxRequests, i+1))
-			// 		return
-			// 	}
-			// }
-
-			// time.Sleep(reqInterval)
-		}
-	}()
 
 	for i := 0; i < nbReqs; i++ {
 		res, err := http.Get("http://localhost:8080/")
