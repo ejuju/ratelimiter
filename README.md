@@ -1,4 +1,3 @@
-# Rate limiter for Go web servers
+# In-memory rate limiter for Go web servers
 
-- IP-based HTTP request limiter
-- In memory ratelimiter
+IP-based HTTP request limiter
